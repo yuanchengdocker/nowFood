@@ -6,10 +6,12 @@
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js &",
-    "start": "concurrently \"npm run dev\"  \"npm run server\"  \"npm run start_server\"",
-    "server": "webpack --watch --progress --config=build/webpack.server.conf.js &",
+    "start": "concurrently \"npm run dev\"  \"npm run dev_server\"  \"npm run start_server\"",
+    "dev_server": "webpack --watch --progress --config=build/webpack.server.conf.js &",
+    "server": "webpack --progress --config=build/webpack.server.conf.js &",
     "start_server": "nodemon dist_server/server.js &",
     "build": "node build/build.js", 
+    "pro": "concurrently \"npm run build\"  \"npm run server\"",
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
