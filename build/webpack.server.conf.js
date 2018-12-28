@@ -45,10 +45,10 @@ module.exports = {
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
-        new CopyWebpackPlugin([
-            // {output}/to/file.txt
-            { from: path.resolve(__dirname, '../server/package.json'), to: path.resolve(__dirname, '../dist_server') },
-            { from: path.resolve(__dirname, '../server/start.sh'), to: path.resolve(__dirname, '../dist_server') }
-        ])
+        // new CopyWebpackPlugin([
+        //     // {output}/to/file.txt
+        //     { from: path.resolve(__dirname, '../server/package.json'), to: path.resolve(__dirname, '../dist_server') },
+        //     { from: path.resolve(__dirname, '../server/start.sh'), to: path.resolve(__dirname, '../dist_server') }
+        // ])
     ]
 }
