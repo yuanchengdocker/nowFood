@@ -1,6 +1,7 @@
 const webpack = require('webpack')
 const path = require('path')
 const fs = require('fs')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 let nodeModules = {};
 fs.readdirSync('node_modules')
@@ -43,6 +44,11 @@ module.exports = {
         extensions: ['.js', '.json']
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        new CopyWebpackPlugin([
+            // {output}/to/file.txt
+            { from: path.resolve(__dirname, '../server/package.json'), to: path.resolve(__dirname, '../dist_server') },
+            { from: path.resolve(__dirname, '../server/start.sh'), to: path.resolve(__dirname, '../dist_server') }
+        ])
     ]
 }

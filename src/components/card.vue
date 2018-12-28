@@ -8,7 +8,17 @@
 
 <script>
 export default {
-  props: ['text']
+  props: ['text','datas'],
+  // data(){
+  //   console.log(this.datas)
+  //   return {
+  //     datam: this.datas
+  //   }
+  // },
+  mounted(){
+    // console.log(this.datam)
+    this.datas['test'] = 123
+  }
 }
 </script>
 

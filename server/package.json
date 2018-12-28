@@ -1,0 +1,24 @@
+{
+    "name": "vuesmall",
+    "version": "1.0.0",
+    "description": "this is cheney small",
+    "author": "yuancheng <yuancheng@inboyu.com>",
+    "private": true,
+    "dependencies": {
+      "koa": "^2.6.2",
+      "koa-router": "^7.4.0",
+      "koa-session": "^5.10.1",
+      "log4js": "^3.0.6",
+      "mysql": "^2.16.0"
+    },
+    "engines": {
+      "node": ">= 4.0.0",
+      "npm": ">= 3.0.0"
+    },
+    "browserslist": [
+      "> 1%",
+      "last 2 versions",
+      "not ie <= 8"
+    ]
+  }
+  

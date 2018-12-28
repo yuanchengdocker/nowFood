@@ -4,7 +4,7 @@
     <div class="userinfo">
       <img class="userinfo-avatar" v-if="userInfo.avatarUrl" :src="userInfo.avatarUrl" background-size="cover" />
       <div class="userinfo-nickname">
-        <card :text="(hi||'')+ (userInfo.nickName||'')"></card>
+        <card :datas="datas" :text="(hi||'')+ (userInfo.nickName||'')"></card>
       </div>
     </div>
 
@@ -23,7 +23,8 @@ export default {
     return {
       hi:this.getNowTime()+'好',
       userInfo: {},
-      isLoading:false
+      isLoading:false,
+      datas:{test:234}
     };
   },
 
@@ -68,6 +69,7 @@ export default {
     },
     clickHandle(msg, ev) {
       console.log("clickHandle:", msg, ev)
+      console.log(this.datas)
     }
   },
 
