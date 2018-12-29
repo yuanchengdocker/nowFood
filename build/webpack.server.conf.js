@@ -23,7 +23,7 @@ module.exports = {
         __filename: false,
         __dirname: false
     },
-    externals: nodeModules,
+    // externals: nodeModules,
     module: {
         loaders: [{
             test: /\.js$/,
