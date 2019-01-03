@@ -29,6 +29,7 @@ var execQuery = sqlOptions => {
     var results = new Promise((resolve, reject) => {
             connectionPool.getConnection((error,connection) => {
             if(error) {
+                log.error(error.message)
                 log.error("Get connection from mysql pool failed !");
                 throw error;
             }
