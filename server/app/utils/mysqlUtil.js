@@ -66,6 +66,9 @@ var execQuery = sqlOptions => {
         });
     }).then(function (chunk) {
         return chunk;
+    }).catch((error)=>{
+        log.warn('Mysql connection close failed !');
+        throw error;
     });
 
     return results;

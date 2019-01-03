@@ -8,7 +8,6 @@ const
     session = require('koa-session'),
     log4js = require('log4js'),
     LoggerFactory = require('./lib/requestLog.js')
-
 import configs from './config/config.default.js'
 import router from './app/router/routes'
 
@@ -23,8 +22,16 @@ try {
     }
 }
 
-log4js.configure(configs.log);
-var log = log4js.getLogger("startup");
+log4js.configure({
+    appenders: {
+        out: { type: 'stdout' },
+        app: { type: 'file', filename: 'log/application.log',maxLogSize: 10485760, backups: 3, compress: true },
+      },
+      categories: {
+        default: { appenders: [ 'out', 'app' ], level: 'debug' }
+      }
+});
+var log = log4js.getLogger("http");
 
 //配置session的中间件
 app.keys = ['some secret hurr'];   /*cookie的签名*/

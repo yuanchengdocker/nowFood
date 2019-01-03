@@ -2,7 +2,9 @@ const webpack = require('webpack')
 const path = require('path')
 const fs = require('fs')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-
+function resolve (dir) {
+    return path.join(__dirname, '..', dir)
+}
 let nodeModules = {};
 fs.readdirSync('node_modules')
     .filter((x) => {
@@ -25,7 +27,17 @@ module.exports = {
     },
     // externals: nodeModules,
     module: {
-        loaders: [{
+        loaders: [
+        {
+            test: /\.(js)$/,
+            loader: 'eslint-loader',
+            enforce: 'pre',
+            include: [resolve('server')],
+            options: {
+                formatter: require('eslint-friendly-formatter')
+            }
+        },    
+        {
             test: /\.js$/,
             loader: 'babel-loader',
             exclude: [
