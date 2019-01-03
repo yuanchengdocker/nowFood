@@ -31,7 +31,7 @@ log4js.configure({
         default: { appenders: [ 'out', 'app' ], level: 'debug' }
       }
 });
-var log = log4js.getLogger("http");
+var log = log4js.getLogger("startUp");
 
 //配置session的中间件
 app.keys = ['some secret hurr'];   /*cookie的签名*/
