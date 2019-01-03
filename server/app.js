@@ -25,7 +25,7 @@ try {
 log4js.configure({
     appenders: {
         out: { type: 'stdout' },
-        app: { type: 'file', filename: 'log/application.log',maxLogSize: 10485760, backups: 3, compress: true },
+        app: { type: 'file', filename: path.resolve(__dirname,'log/application.log') ,maxLogSize: 10485760, backups: 3, compress: true },
       },
       categories: {
         default: { appenders: [ 'out', 'app' ], level: 'debug' }
