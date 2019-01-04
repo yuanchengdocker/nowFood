@@ -6,6 +6,13 @@ var getFoodList = async (userId) => {
     return users;
 }
 
+var getFoodDetail = async (id) => {
+  var food = indexDao.getFoodDetail(id);
+
+  return food;
+}
+
 module.exports = {
-    getFoodList : getFoodList
+    getFoodList : getFoodList,
+    getFoodDetail
 }

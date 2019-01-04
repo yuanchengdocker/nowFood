@@ -1,6 +1,5 @@
+let isDev = process.env.NODE_ENV == 'development'
 
 export const config = {
-    url: 'https://www.yuancc.top/now'
-    // url: 'http://localhost:3000'
+    url: isDev?'http://localhost:3000/now':'https://www.yuancc.top/now'
   }
-  

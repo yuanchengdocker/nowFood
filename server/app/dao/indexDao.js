@@ -18,7 +18,24 @@ var getFoodList = async (userId) => {
         return users;
     }
 }
+var getFoodDetail = async (id) => {
+  let mysqlOptions = {
+      sql : 'select * from food_menu where id = ?',
+      args : [id]
+  };
+  try {
+      var food = await mysql.execQuery(mysqlOptions);
+  } catch (error) {
+      log.error(error)
+  }
+  if(food.length == 0) {
+      return {};
+  } else {
+      return food[0];
+  }
+}
 
 module.exports = {
-    getFoodList : getFoodList
+    getFoodList : getFoodList,
+    getFoodDetail
 }

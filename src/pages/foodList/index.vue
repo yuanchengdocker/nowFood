@@ -4,7 +4,7 @@
       <span>如下為已存在菜單（或店名）</span>
     </div>
     <div class="weui-cells weui-cells_after-title">
-        <navigator v-for="(food,index) in foods" :key="index" url="/pages/foodDetail/main" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <navigator v-for="(food,index) in foods" :key="index" :url="'/pages/foodDetail/main?id='+food.id" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
           <div class="weui-cell__hd">
             <image :src="food.img_url||icon" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
           </div>

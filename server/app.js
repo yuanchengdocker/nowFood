@@ -6,6 +6,7 @@ const
     Router = require('koa-router'),
     path = require('path'),
     session = require('koa-session'),
+    bodyParser = require('koa-bodyparser'),
     log4js = require('log4js'),
     LoggerFactory = require('./lib/requestLog.js')
 import configs from './config/config.default.js'
@@ -45,6 +46,8 @@ const config = {
     renew: false
 }
 app.use(LoggerFactory.getLogger(configs))
+
+app.use(bodyParser());
 app.use(session(config, app))
 
 app.use(router.routes())
