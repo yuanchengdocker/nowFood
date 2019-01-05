@@ -44,7 +44,7 @@ export default {
   },
   methods: {
     editeFood(){
-      const url = "../foodEdit/main"
+      const url = "/pages/foodEdit/index"
       wx.navigateTo({ url })
     },
     deleteFood(){}

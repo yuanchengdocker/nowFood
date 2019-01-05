@@ -52,7 +52,7 @@ export default {
       return msg
     },
     goFoodMenu() {
-      const url = "../foodList/main"
+      const url = "/pages/foodList/index"
       wx.navigateTo({ url })
     },
     getUserInfo() {
