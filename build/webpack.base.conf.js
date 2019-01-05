@@ -13,19 +13,19 @@ function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
 
-// function getEntry (rootSrc) {
-//   var map = {};
-//   glob.sync(rootSrc + '/pages/**/main.js')
-//   .forEach(file => {
-//     var key = relative(rootSrc, file).replace('.js', '');
-//     map[key] = file;
-//   })
-//    return map;
-// }
+function getEntry (rootSrc) {
+  var map = {};
+  glob.sync(rootSrc + '/pages/**/main.js')
+  .forEach(file => {
+    var key = relative(rootSrc, file).replace('.js', '');
+    map[key] = file;
+  })
+   return map;
+}
 
-// const appEntry = { app: resolve('./src/main.js') }
-// const pagesEntry = getEntry(resolve('./src'), 'pages/**/main.js')
-// const entry = Object.assign({}, appEntry, pagesEntry)
+const appEntry = { app: resolve('./src/main.js') }
+const pagesEntry = getEntry(resolve('./src'), 'pages/**/main.js')
+const entry = Object.assign({}, appEntry, pagesEntry)
 
 module.exports = {
   // 如果要自定义生成的 dist 目录里面的文件路径，

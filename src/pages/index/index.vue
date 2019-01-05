@@ -81,6 +81,15 @@ export default {
 </script>
 
 <style scoped>
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+}
 .userinfo {
   display: flex;
   /* flex-direction: column; */
