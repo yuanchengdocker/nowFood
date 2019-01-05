@@ -89,7 +89,7 @@ export default {
       this.openSimple = true;
     },
     goFoodMenu() {
-      const url = "../foodEdit/main";
+      const url = "/pages/foodEdit/index";
       wx.navigateTo({ url });
     }
   }

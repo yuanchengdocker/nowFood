@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/bash
 
 echo $PATH
 echo 'this is nowFood api start!'
@@ -8,6 +8,7 @@ export PATH=$PATH:$NODE_HOME/bin
 
 node -v
 npm -v
-pm2 start /opt/yuan/web/nowFood/dist_server/server.js
+cd /opt/yuan/web/nowFood/dist_server
+pm2 restart server.js
 
 exit

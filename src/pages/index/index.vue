@@ -1,9 +1,10 @@
 <template>
-  <div class="container" @click="clickHandle('test click', $event)">
+  <div class="container">
 
     <div class="userinfo">
       <img class="userinfo-avatar" v-if="userInfo.avatarUrl" :src="userInfo.avatarUrl" background-size="cover" />
       <div class="userinfo-nickname">
+        <button open-type="getUserInfo" @getuserinfo="onGetUserInfo">授权登陆</button>
         <card :datas="datas" :text="(hi||'')+ (userInfo.nickName||'')"></card>
       </div>
     </div>
@@ -12,6 +13,7 @@
 
     <button bindtap="setLoading" :size="'default'" @click="gotoCheck" :disabled="isLoading" :loading="isLoading">随机筛选</button>
     <button bindtap="setLoading" @click="goFoodMenu">查看菜品</button>
+
   </div>
 </template>
 
@@ -33,6 +35,11 @@ export default {
   },
 
   methods: {
+    onGetUserInfo(e) {
+        if(e.mp.detail.userInfo){
+          this.userInfo = e.mp.detail.userInfo
+        }
+    },
     gotoCheck(){
       this.isLoading = true
       setTimeout(()=>{
@@ -55,18 +62,6 @@ export default {
       const url = "/pages/foodList/index"
       wx.navigateTo({ url })
     },
-    getUserInfo() {
-      // 调用登录接口
-      wx.login({
-        success: () => {
-          wx.getUserInfo({
-            success: res => {
-              this.userInfo = res.userInfo
-            }
-          });
-        }
-      });
-    },
     clickHandle(msg, ev) {
       console.log("clickHandle:", msg, ev)
       console.log(this.datas)
@@ -75,7 +70,7 @@ export default {
 
   created() {
     // 调用应用实例的方法获取全局数据
-    this.getUserInfo()
+    // this.getUserInfo()
   }
 };
 </script>
